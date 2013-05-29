@@ -23,8 +23,15 @@ Once done with the pre-written tests, just continue on your own
 1. Pick a feature
 2. Write a test for main usecase
 3. Write just enough implementation to pass the test
-4. Refactor the implementation for readability keeping tests green
-5. What aspect of the implementation you do not yet trust?  Write test for it and goto step 3.
+4. If needed, refactor the implementation for readability while keeping tests green
+5. Do you trust the implemetation to handle the whole feature?
+   * No: Write a test for an aspect you don't trust and goto step 3.
+   * Yes: Goto step 1.
+
+With 2+ people participating, take turns.  One drives and others act
+as observers ([pairing](http://en.wikipedia.org/wiki/Pair_programming)
+with a gang).  Driver first greens tests then writes a new test and
+leaves the failing test for next driver.
 
 Origin
 ------
