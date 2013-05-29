@@ -33,6 +33,12 @@ as observers ([pairing](http://en.wikipedia.org/wiki/Pair_programming)
 with a gang).  Driver first greens tests then writes a new test and
 leaves the failing test for next driver.
 
+HELP!
+-----
+
+Stuck?  Dunno where to go?  Check branches to see what others have
+come up with.
+
 Origin
 ------
 
