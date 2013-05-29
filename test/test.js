@@ -14,13 +14,31 @@ describe("URL parser", function() {
         URLParser.parse('http://www.google.fi/')
     });
 
-    it("picks up host part", function() {
-        // Uh-oh.  Now you need to decide what this URLParser beast
-        // will start to look like from user perspective...
+    it("fails on weird input", function() {
+        assert.throws(function() { URLParser.parse(); });
+        assert.throws(function() { URLParser.parse(1, "scheme://test"); });
+        assert.throws(function() { URLParser.parse({}); });
+        assert.throws(function() { URLParser.parse(null); });
+        assert.throws(function() { URLParser.parse(-123); });
+        assert.throws(function() { URLParser.parse(""); });
     });
 
-    // Your next great feature covered here.
+    it("picks up scheme, host and path", function() {
+        assert.deepEqual(URLParser.parse('scheme://hostname/path'), {
+            scheme: "scheme",
+            hostname: "hostname",
+            path: "/path"
+        });
+        assert.deepEqual(URLParser.parse('http://www.google.fi'), {
+            scheme: "http",
+            hostname: "www.google.fi",
+            path: ""
+        });
+        assert.deepEqual(URLParser.parse('file:///foo/bar'), {
+            scheme: "file",
+            hostname: "",
+            path: "/foo/bar"
+        });
+    });
 
-    // And don't forget to cover the behavior in case of broken, evil
-    // or plain stupid usecases.
 });
